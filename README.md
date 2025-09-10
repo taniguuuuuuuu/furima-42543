@@ -4,7 +4,6 @@
 
 | Column             | Type     | Options     |
 | ------------------ | -------- | ----------- |
-| id                 | bigint   | PK, auto_increment |
 | nickname           | string   | null: false |
 | email              | string   | null: false, unique: true |
 | encrypted_password | string   | null: false |
@@ -13,8 +12,6 @@
 | last_name_kana     | string   | null: false |
 | first_name_kana    | string   | null: false |
 | birthday           | date     | null: false |
-| created_at         | datetime | null: false, default: CURRENT_TIMESTAMP |
-| updated_at         | datetime | null: false, default: CURRENT_TIMESTAMP |
 
 has_many :items
 has_many :purchases
@@ -31,7 +28,7 @@ has_many :purchases
 | prefecture_id           | integer    | null: false |
 | shipping_day_id         | integer    | null: false |
 | price                   | integer    | null: false, 300..9_999_999 |
-| user_id                 | references | FK（users.id） |
+| user                    | references | null: false, foreign_key: true |
 
 belongs_to :user
 has_one :purchase
@@ -42,7 +39,6 @@ has_one :purchase
 | ----------------------- | ---------- | ------------- |
 | user                    | references | null: false, foreign_key: true |
 | item                    | references | null: false, foreign_key: true |
-| created_at / updated_at | datetime   | Rails標準      |
 
 belongs_to :user
 belongs_to :item
@@ -61,4 +57,4 @@ has_one :address
 | phone_number  | string     | null: false |
 | purchase      | references | null: false, foreign_key: true |
 
-belongs_to :purchas
+belongs_to :purchase
