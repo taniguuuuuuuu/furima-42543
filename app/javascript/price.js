@@ -1,4 +1,4 @@
-window.addEventListener('turbo:load', () => {
+const price = () => {
   const priceInput = document.getElementById("item-price");
   if (!priceInput) return;
 
@@ -12,10 +12,13 @@ window.addEventListener('turbo:load', () => {
       taxDom.innerHTML = "";
       profitDom.innerHTML = "";
     } else {
-      const tax = Math.floor(inputValue * 0.1);
-      const profit = Math.floor(inputValue - tax);
+      const tax = Math.floor(inputValue * 0.1);   // 販売手数料
+      const profit = Math.floor(inputValue - tax); // 販売利益
       taxDom.innerHTML = tax;
       profitDom.innerHTML = profit;
     }
   });
-});
+};
+
+window.addEventListener("turbo:load", price);
+window.addEventListener("turbo:render", price);
