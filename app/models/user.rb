@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # アソシエーション
+  has_many :items, dependent: :destroy
+
   # ニックネーム
   validates :nickname, presence: { message: "can't be blank" }
 
