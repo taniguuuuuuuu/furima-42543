@@ -24,3 +24,4 @@ pin "stream" # @2.1.0
 pin "tls" # @2.1.0
 pin "url" # @2.1.0
 pin "util" # @2.1.0
+pin "price"
