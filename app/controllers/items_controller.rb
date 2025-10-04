@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @items = Item.order(created_at: :desc)
   end
 
   def new
@@ -25,11 +26,11 @@ class ItemsController < ApplicationController
       :image,
       :name,
       :description,
-      :detail_id,        # カテゴリー
-      :status_id,        # 商品の状態
-      :delivery_fee_id,  # 配送料負担
-      :prefecture_id,    # 発送元の地域
-      :shipping_days_id, # 発送までの日数
+      :detail_id,
+      :status_id,
+      :delivery_fee_id,
+      :prefecture_id,
+      :shipping_days_id,
       :price
     )
   end
