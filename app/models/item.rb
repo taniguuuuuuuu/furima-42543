@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :detail
   belongs_to :delivery_fee
   belongs_to :prefecture
-  belongs_to :shipping_day
+  belongs_to :shipping_days, class_name: 'ShippingDay', foreign_key: 'shipping_days_id'
 
   has_one_attached :image
 
