@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_root, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update]
+  before_action :move_to_root, only: [:edit, :update]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -28,23 +28,17 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if item_params[:image].blank?
-      if @item.update(item_params.except(:image))
-        redirect_to item_path(@item)
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    elsif @item.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path(@item)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  def destroy
-    @item.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   @item.destroy
+  #   redirect_to root_path
+  # end
 
   private
 
