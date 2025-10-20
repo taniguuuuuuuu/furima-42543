@@ -6,6 +6,8 @@
       購入内容の確認
     </h1>
 
+    <%= render 'shared/error_messages', model: @order_form %>
+
     <div class='buy-item-info'>
       <%= image_tag @item.image, class: 'buy-item-img' if @item.image.attached? %>
       <div class='buy-item-right-content'>
