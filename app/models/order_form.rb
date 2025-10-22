@@ -20,7 +20,7 @@ class OrderForm
       postal_code: postal_code,
       prefecture_id: prefecture_id,
       city: city,
-      address: addresses, # ←ここをaddressesにする
+      address: addresses,
       building: building,
       phone_number: phone_number,
       purchase_id: purchase.id

@@ -25,6 +25,5 @@ class Item < ApplicationRecord
   def sold_out?
     purchase.present?
   end
-  belongs_to :user
   has_one :purchase
 end

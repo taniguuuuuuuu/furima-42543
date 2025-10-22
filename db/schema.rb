@@ -39,19 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_20_130437) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "addresses", charset: "utf8mb3", force: :cascade do |t|
-    t.string "postal_code"
-    t.integer "prefecture_id"
-    t.string "city"
-    t.string "address"
-    t.string "building"
-    t.string "phone_number"
-    t.bigint "purchase_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["purchase_id"], name: "index_addresses_on_purchase_id"
-  end
-
   create_table "articles", charset: "utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,7 +106,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_20_130437) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "purchases"
   add_foreign_key "items", "users"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users"
