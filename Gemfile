@@ -80,3 +80,5 @@ end
 
 gem 'devise'
 gem 'active_hash'
+gem 'payjp'
+gem "dotenv-rails", "~> 3.1"

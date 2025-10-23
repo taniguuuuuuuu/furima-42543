@@ -23,6 +23,7 @@ class Item < ApplicationRecord
   # has_one :purchase
 
   def sold_out?
-    false
+    purchase.present?
   end
+  has_one :purchase
 end
