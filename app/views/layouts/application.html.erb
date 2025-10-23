@@ -3,12 +3,14 @@
 
 <head>
   <title>Furima</title>
+  <meta name="payjp-public-key" content="<%= ENV['PAYJP_PUBLIC_KEY'] %>">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+
   <script src="https://js.pay.jp/v2/"></script>
+
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <meta name="payjp-public-key" content="<%= ENV['PAYJP_PUBLIC_KEY'] %>">
   <%= javascript_importmap_tags %>
 </head>
 
