@@ -1,5 +1,6 @@
 const pay = () => {
-
+  const publicKey = gon.public_key
+  const payjp = Payjp(publicKey)
   const payjpPublicKey = document
     .querySelector('meta[name="payjp-public-key"]')
     ?.getAttribute('content');
