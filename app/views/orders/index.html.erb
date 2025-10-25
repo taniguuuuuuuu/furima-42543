@@ -8,7 +8,7 @@
     </h1>
 
     <%= render 'shared/error_messages', model: @order_form %>
-
+    <div id="card-error-message"></div>
     <div class='buy-item-info'>
       <%= image_tag @item.image, class: 'buy-item-img' if @item.image.attached? %>
       <div class='buy-item-right-content'>
@@ -33,7 +33,7 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with model: @order_form, url: item_orders_path(@item), id: 'charge-form', class: 'transaction-form-wrap', local: true do |f| %>
+    <%= form_with model: @order_form, url: item_orders_path(@item), id: 'charge-form', class: 'transaction-form-wrap', local: true, data: { turbo: false } do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -68,7 +68,6 @@
         </div>
         <div id="cvc-form" class="input-default"></div>
       </div>
-    <div id="card-error-message" style="color: red; margin-top: 5px;"></div>
     </div>
     <%# /カード情報の入力 %>
     
